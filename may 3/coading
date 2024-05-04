@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[1000] ;
+    int n ;
+  scanf("%s",str);
+  scanf("%d",&n);
+    int length = strlen(str);
+    n = n % length;
+   for (int i = 0; i < n; i++) {
+        char temp = str[length - 1];
+        for (int j = length - 1; j > 0; j--) {
+            str[j] = str[j - 1];
+        }
+        str[0] = temp;
+    }
+
+    printf("After %d clockwise rotations: %s\n", n, str);
+
+    return 0;
+}
+
+
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a[100], f[100];
+    int n, i, j, ctr;
+    scanf("%d", &n);
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+        f[i] = -1;
+    }
+    for (i = 0; i < n; i++)
+    {
+        ctr = 1;
+        for (j = i + 1; j < n; j++)                                 // 3  4  5  3  4  6  7  5  3
+        {                                                           // 3  2  2  0  0  1  1  0  0
+            if (a[i] == a[j])
+            {
+                ctr++; 
+                f[j] = 0; 
+            }
+        }
+        if (f[i] != 0)
+        {
+            f[i] = ctr;
+        }
+    }
+    for (i = 0; i < n; i++)
+    {
+        if (f[i] != 0)
+        {
+            printf("%d occurs %d times\n", a[i], f[i]);
+        }
+		return 0;
+    }
+}#include <stdio.h>
+
+int main()
+{
+    int a[100], f[100];
+    int n, i, j, ctr;
+    scanf("%d", &n);
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+        f[i] = -1;
+    }
+    for (i = 0; i < n; i++)
+    {
+        ctr = 1;
+        for (j = i + 1; j < n; j++)                                 // 3  4  5  3  4  6  7  5  3
+        {                                                           // 3  2  2  0  0  1  1  0  0
+            if (a[i] == a[j])
+            {
+                ctr++; 
+                f[j] = 0; 
+            }
+        }
+        if (f[i] != 0)
+        {
+            f[i] = ctr;
+        }
+    }
+    for (i = 0; i < n; i++)
+    {
+        if (f[i] != 0)
+        {
+            printf("%d occurs %d times\n", a[i], f[i]);
+        }
+		return 0;
+    }
+}
